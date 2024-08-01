@@ -31,7 +31,7 @@ do
   filename=$(find . -type f -name "*.miniseed" -printf '%p\n' | sort | head -n 1)
   fullname=$(echo "$(pwd)/$filename")
 
-  rm -f `echo $fullname`
+  rm -rf `echo $fullname`
   echo $fullname file deleted.
   logger "Continous Archive usage was exeeding treshold ($usage%>$treshold%). File $fullname deleted."
 done
