@@ -21,6 +21,7 @@ Give this file executable rights
 Add the cronjob command
 >> crontab -e
 Add the line (for 90% treshold, modify if neccessary):
+
 0 * * * * /usr/bin/nanometrics/archive_cleanup.sh 90
 
 Save and exit.
