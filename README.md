@@ -13,11 +13,25 @@ Needs write permission in /media/removable0
 
 
 Installation:
-ssh to CTR and create a file in /usr/bin/nanometrics/
->> cd /usr/bin/nanometrics/ && touch archive_cleanup.sh
+SSH into the Centaur and copy the file archive_cleanup.sh to /usr/bin/nanometrics
 
 Give this file executable rights
 >> chmod -c 755 archive_cleanup.sh
 
 Add the cronjob command
-echo "0 * * * * /usr/bin/nanometrics/archive_cleanup.sh 90" >> /etc/crontab
+>> crontab -e
+Add the line:
+0 * * * * /usr/bin/nanometrics/archive_cleanup.sh 90
+
+Save and exit.
+
+Check:
+>> crontab -l
+
+Check if the script works and check output
+>> /usr/bin/nanometrics/archive_cleanup.sh 90  &&  tail /var/log/syslog
+The log-File should contain a line that the Script has been Activated.
+
+
+
+
